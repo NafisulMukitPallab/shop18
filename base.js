@@ -1,0 +1,19 @@
+import {Browser, Builder} from 'selenium-webdriver';
+class BasePage {
+    constructor() {
+        this.driver = new Builder().forBrowser(Browser.CHROME).build();
+    }
+
+    async browserOpen(url) {
+        await this.driver.get(url);
+    }
+
+    async browserClose() {
+        await this.driver.quit();
+    }
+
+
+}
+const page=new BasePage();
+page.browserOpen('https://demowebshop.tricentis.com/');
+page.browserClose();
